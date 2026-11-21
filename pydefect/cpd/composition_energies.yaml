@@ -1,0 +1,12 @@
+Ir1:
+  energy: -9.82523502
+  source: Ir_mp-101
+Ir2O4:
+  energy: -45.55257717
+  source: IrO2_unitcell
+Ir4O12:
+  energy: -109.7055257
+  source: IrO3_mp-1097041
+O2:
+  energy: -10.27836733
+  source: mol_O2

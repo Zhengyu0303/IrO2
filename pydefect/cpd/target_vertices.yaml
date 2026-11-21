@@ -1,0 +1,15 @@
+target: IrO2
+A:
+  chem_pot:
+    Ir: 0.0
+    O: -1.33634
+  competing_phases:
+  - Ir
+  impurity_phases: []
+B:
+  chem_pot:
+    Ir: -2.67269
+    O: 0.0
+  competing_phases:
+  - O
+  impurity_phases: []

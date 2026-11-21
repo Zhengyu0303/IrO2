@@ -1,0 +1,10 @@
+version: 0.9.4
+task: dos
+xc: pbesol
+input_options:
+  kpt_density: 5.0
+  overridden_potcar: {}
+user_incar_settings:
+  LVTOT: true
+  LAECHG: true
+  KPAR: 1

@@ -1,0 +1,27 @@
+# @potential_species H_O  ### species in potentia
+# W.L. JorgensenThe Journal of Chemical Physics 79926 (1983); https://doi.org/10.1063/1.445869
+
+ 
+ 
+# create groups ##
+group O type 2
+group H type 1
+group Mg type 3
+ 
+## set charges - beside manually ##
+set group O charge -0.830
+set group H charge 0.415
+set group Mg charge 0
+ 
+### TIP3P Potential Parameters ##
+pair_style lj/cut/coul/long 10.0
+pair_coeff * * 0.000 0.000
+pair_coeff 2 2 0.102 3.188
+pair_coeff 2 3 0.102 3.15
+pair_coeff 2 3 0.102 3.15
+bond_style harmonic
+bond_coeff 1 450 0.9572
+angle_style harmonic
+angle_coeff 1 55 104.52
+kspace_style pppm 1.0e-5 #final npt relaxation
+ 

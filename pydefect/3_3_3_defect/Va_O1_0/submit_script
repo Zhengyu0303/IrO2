@@ -1,0 +1,25 @@
+#$ -P Free
+#$ -A Imperial_Mat
+#$ -l gpu=1
+#$ -l h_rt=48:00:00
+#$ -l mem=10G
+#$ -ac allow=X
+#$ -l threads=1
+#$ -pe mpi 8
+## Set OpenMP threads
+
+export OMP_NUM_THREADS=4
+export OMP_STACK_SIZE=4096m
+## Path to the container (.sif) file
+export CONTAINER_PATH=/lustre/scratch/mmm1514/nscc_volta_nvhpc243_cuda123_6.4.3.sif
+## Change to the working directory
+cd $SGE_O_WORKDIR
+export OMPI_MCA_hwloc_base_binding_policy=none
+export TMPDIR=/lustre/scratch/mmm1514/tmpdir
+pwd
+export OMPI_MCA_hwloc_base_binding_policy=none
+export SINGULARITY_LOCALCACHEDIR=/lustre/scratch/mmm1514/singularity.cache
+export SINGULARITY_TMPDIR=/lustre/scratch/mmm1514/singularity.tmp
+ 
+singularity exec --bind /lustre:/lustre --nv $CONTAINER_PATH mpirun -np 1 /opt/vasp.6.4.3/bin/vasp_std >> ./vasp.out
+ 

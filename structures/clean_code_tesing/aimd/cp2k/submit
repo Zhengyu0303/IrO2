@@ -1,0 +1,13 @@
+#!/bin/bash
+#SBATCH --job-name=IrO2_water_aimd
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=64
+#SBATCH --cpus-per-task=1
+#SBATCH --time=24:00:00
+#SBATCH --partition=hbm
+ 
+module purge
+module load ucl-stack/2025-12
+module load cp2k/2024.3-openmpi/gcc-12.3.0
+ 
+srun cp2k.psmp -i cp2k_aimd.inp -o cp2k_aimd.out

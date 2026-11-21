@@ -1,0 +1,7 @@
+version: 0.9.4
+task: structure_opt
+xc: pbesol
+input_options:
+  kpt_density: 5.0
+  overridden_potcar: {}
+user_incar_settings: {}

@@ -1,0 +1,8 @@
+version: 0.9.4
+task: defect
+xc: pbe
+input_options:
+  kpt_density: 1.8
+  overridden_potcar: {}
+  charge: 1
+user_incar_settings: {}

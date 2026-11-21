@@ -1,0 +1,20 @@
+units real
+dimension 3
+boundary p p p
+atom_style full
+read_data structure.inp
+include potential.inp
+group constraintxyz id 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173
+fix ensemble all nvt temp 300.0 300.0 100.0
+variable dumptime  equal 100 
+variable thermotime  equal 100 
+fix constraintxyz constraintxyz setforce 0.0 0.0 0.0
+timestep 0.001
+velocity all create 600.0 68668 dist gaussian
+velocity constraintxyz set 0.0 0.0 0.0
+dump 1 all custom ${dumptime} dump.out id type xsu ysu zsu fx fy fz vx vy vz
+dump_modify 1 sort id format line "%d %d %20.15g %20.15g %20.15g %20.15g %20.15g %20.15g %20.15g %20.15g %20.15g"
+thermo_style custom step temp pe etotal pxx pxy pxz pyy pyz pzz vol
+thermo_modify format float %20.15g
+thermo ${thermotime}
+run 1000000
